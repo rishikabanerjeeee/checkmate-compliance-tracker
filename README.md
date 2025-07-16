@@ -36,15 +36,13 @@ The Compliance Intelligence Engine is built for legal, risk, and audit teams to:
 
 ---
 
-## 🛠️ Setup Instructions
+🛠️ Setup Instructions
 
-### 1. Clone the Repo
-
-```bash
+## 1. Clone the Repo
 git clone https://github.com/rishikabanerjeeee/checkmate-compliance-tracker.git
 cd checkmate-compliance-tracker
 
-# 🛠️ Setup Instructions
+### 🛠️ Setup Instructions
 
 ## 2. Install Python Dependencies
 pip install -r requirements.txt
