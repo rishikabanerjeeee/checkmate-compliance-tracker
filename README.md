@@ -1,4 +1,5 @@
 # ✅ checkmate-compliance-tracker  
+A PROJECT MADE BY RISHIKA BANERJEE FROM KJ SOMAIYA SCHOOL OF ENGINEERING UNDER INTERNSHIP AT DELOITTE ( MAY 2025- JULY 2025)
 Compliance Intelligence Engine — AI-Powered Regulation Alignment Platform
 
 An AI-powered compliance tool that matches internal controls with regulatory clauses (e.g., GDPR, RBI, ISO 27001), detects semantic gaps, suggests rewrites, and highlights associated risks/fines using LLaMA3 via Groq API.  
