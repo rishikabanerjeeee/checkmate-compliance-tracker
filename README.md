@@ -82,3 +82,10 @@ streamlit run app/dashboard.py
 # 🤝 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first.
+<img width="1920" height="801" alt="image" src="https://github.com/user-attachments/assets/aa499342-3863-4190-9406-fe401da34a5a" />
+
+[streamlit-dashboard-2025-07-16-11-07-16.webm](https://github.com/user-attachments/assets/f51ceb8f-6475-4475-922f-a6b520671c8d)
+<img width="1919" height="841" alt="image" src="https://github.com/user-attachments/assets/ac36339a-191e-49d5-8363-1de0deee2f3b" />
+
+
+
