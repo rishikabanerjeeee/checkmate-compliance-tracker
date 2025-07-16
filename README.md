@@ -58,16 +58,8 @@ streamlit run app/dashboard.py
 
 # 📁 Project Structure
 
-.
-├── app/
-│   └── dashboard.py             # Streamlit UI
-├── api/
-│   ├── document_parser.py       # File parsing (PDF, Word, Excel, etc.)
-│   ├── match_engine.py          # Clause matching + LLaMA3 semantic gap analysis
-│   ├── report_builder.py        # Excel report generation
-│   └── llama_chat_agent.py      # Audit-aware chatbot engine
-├── data/                        # Uploaded and processed files
-├── requirements.txt             # Python package dependencies
+<img width="958" height="410" alt="image" src="https://github.com/user-attachments/assets/f7d4e2e8-7999-4774-b07c-86957cf07a1b" />
+
 # 🔐 Audit Mode
 
 # Use the toggle in the Streamlit sidebar. In Audit Mode:
