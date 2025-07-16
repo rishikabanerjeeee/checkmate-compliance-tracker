@@ -1,0 +1,240 @@
+Requirements Specification: Document Upload and AI Chatbot Interface
+1. Document Upload Section
+Remove all summary labels (e.g., "Strong," "Weak," "Partial").
+
+Retain two document upload buttons with the following functionality:
+
+First Upload Button (Control Repository):
+
+Placeholder: "Upload Company Control Repository"
+
+Accepts all file formats (PDF, DOCX, XLSX, CSV, etc.).
+
+Second Upload Button (Regulatory Documents):
+
+Placeholder: "Upload Regulatory Documents (Multiple)"
+
+Supports bulk uploads of multiple files in any format (PDF, DOCX, XLSX, CSV, etc.).
+
+2. Report Generation & CSV Export
+Provide a downloadable CSV report containing:
+
+Sheet 1: Control-Gap Analysis
+
+Detailed matching between controls and regulations.
+
+Columns to include:
+
+Control ID & Description
+
+Regulation Reference
+
+Match Score (%)
+
+Semantic Gap Analysis (Why the gap exists)
+
+Associated Risks
+
+Potential Fines (if non-compliant)
+
+Suggested Rewrite for Better Compliance
+
+Areas Where the Report is Lacking (Accuracy Notes)
+
+Sheet 2: Full Chatbot History
+
+Log of all user prompts and AI responses (chronologically ordered).
+
+The report must be accurate, concise, and data-driven—avoiding irrelevant or misleading information.
+
+The Download button (visible on the dashboard) should export the report directly to the user’s local device for saving.
+
+3. Chatbot Interface (Primary Focus)
+Remove all control clauses, flashcards, and matched/weak control displays from the UI.
+
+Simplify the interface to a ChatGPT-like UI:
+
+Main Chat Window:
+
+Clean, minimal design where messages appear in a conversational thread (new messages push older ones up).
+
+Input box at the bottom for user prompts.
+
+Sidebar (Optional):
+
+Contains previous chat sessions (if needed) but avoids clutter.
+
+AI Learning & Retention:
+
+The chatbot must retain and improve from prior interactions—no memory reset upon reloading/restarting.
+
+Responses should be highly accurate, leveraging document context without hallucinations.
+
+4. Additional Features
+Reset Chat & Results Button: Retain for clearing temporary session data (without affecting learned knowledge).
+
+UI Clarity:
+
+No summary panels, side tabs, or redundant history displays—focus remains on the chatbot.
+
+Chat history (if retained) should be unobtrusive (e.g., collapsible sidebar).
+
+5. Accuracy & Validation
+The report must strictly align with uploaded documents—no generic or inaccurate data.
+
+Implement validation checks to ensure:
+
+Semantic gaps, fines, and risks are justified by document evidence.
+
+Suggested rewrites are practical and compliance-driven.
+
+Chatbot responses should cite sources (document references) where applicable.
+
+6. Future Enhancements (To Discuss Further)
+Report Customization: Ability to filter CSV columns based on user needs.
+
+Chatbot Training: Fine-tuning prompts to improve accuracy over time.
+
+UI/UX Tweaks: Optional dark mode, font scaling, etc.
+
+
+
+
+
+
+
+
+
+SAMPLE POLICY TEMPLATE STRUCTURE PROMPT
+CONTROL POLICY
+1. Introduction & Purpose
+•	Overview of the document
+•	Objectives (compliance, risk mitigation, fraud prevention)
+•	Scope (departments, processes, systems covered)
+•	Regulatory framework (e.g., SOX, Basel III, GDPR, IFRS, RBI/FED guidelines)
+2. Entity Overview
+•	Organizational structure (business units, hierarchy)
+•	Key roles & responsibilities (e.g., Board, Risk Committee, CFO, Internal Audit)
+•	Business processes (lending, investments, payments, treasury, etc.)
+3. Risk Assessment & Control Environment
+•	Identified risks (credit, market, operational, liquidity, fraud, cyber risks)
+•	Risk appetite & tolerance levels
+•	Control frameworks (COSO, COBIT, ISO 27001)
+4. Detailed Control Activities
+•	Financial Controls:
+o	Reconciliation procedures (bank, GL, intercompany)
+o	Authorization limits (approval matrices for transactions)
+o	Segregation of duties (SoD) matrix
+o	Journal entry & month-end close controls
+•	Operational Controls:
+o	Transaction monitoring (AML, KYC, fraud detection)
+o	IT controls (access management, change management, cybersecurity)
+o	Business continuity & disaster recovery plans
+•	Compliance Controls:
+o	Regulatory reporting (e.g., Basel III, FATCA, Dodd-Frank)
+o	Tax compliance (withholding, transfer pricing)
+o	Audit trails & record-keeping (data retention policies)
+5. Monitoring & Reporting
+•	Key Performance Indicators (KPIs) & Key Risk Indicators (KRIs)
+•	Internal audit findings & remediation plans
+•	Management reporting (dashboard, MIS, escalation protocols)
+6. Roles & Responsibilities
+•	Control owners (who implements the control?)
+•	Reviewers (who validates the control?)
+•	Escalation path for control failures
+7. Documentation & Evidence
+•	Sample templates (checklists, approval forms, logs)
+•	References to policies (e.g., Anti-Fraud Policy, IT Security Policy)
+•	Audit evidence requirements (what proof is needed for testing?)
+8. Review & Update Mechanism
+•	Frequency of control reviews (quarterly/annually)
+•	Process for updating controls (change management)
+•	Version control & approval history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+open-compliance-intelligence-engine/
+├── .env                             # API keys and environment config (Groq API etc.)
+├── .gitignore                       # Ignore venv, __pycache__, and other clutter
+├── requirements.txt                 # All Python dependencies
+├── .venv/                           # Python virtual environment folder (used locally)
+│   └── ...                          # Your virtualenv-specific libraries and executables
+
+├── api/                             # Core logic modules (AI, parsing, matching, reporting)
+│   ├── __pycache__/                 # Python bytecode cache – auto-generated
+│   ├── document_parser.py          # Extracts and splits raw uploaded files into clauses
+│   ├── match_engine.py             # Semantic similarity logic using SentenceTransformer
+│   ├── llama_chat_agent.py         # LLaMA-3 chatbot integration using Groq API
+│   └── report_builder.py           # Generates PDF and Excel compliance reports
+
+├── app/                             # Frontend UI (Streamlit)
+│   └── dashboard.py                # Main app – handles UI, file uploads, AI chat, export
+
+├── data/                            # All dynamic data generated from processing
+│   ├── uploads/                    # Uploaded user files (saved locally)
+│   ├── texts/                      # Extracted raw text from uploads + metadata
+|── reports/                    # Generated Excel and PDF reports
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Objective:
+I need a highly accurate and simplified report split into two sheets:
+
+Match Report: Detailed and precise, focusing only on essential information (e.g., scores, verified data). Avoid any errors (like 429) and exclude AI-generated fluff—only include reliable, non-AI outputs.
+
+Chatbot Conversation History: Must correctly reference uploaded documents. Before answering my questions, the chatbot should first provide a concise, human-readable summary of the full matching analysis. If multiple documents are compared, it should cross-match all of them and generate "flashcard-style" prompt suggestions to help me explore the report deeper.
+
+Additional Requirements:
+
+Model Consistency: The chatbot resets and loses context—fix this to retain corrections.
+
+Enhancements:
+
+Add reference links for key data points.
+
+Include pop-up sections to display actual document excerpts when needed.
+
+Refine chatbot replies for clarity and accuracy.
+
+Goal: Ensure the report generation is error-free and the chatbot interactions are intuitive and actionable.
+
+
+
+
+
+
+
+
+
+
+

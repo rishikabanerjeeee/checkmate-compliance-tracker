@@ -1,0 +1,29 @@
+# === Core Dependencies ===
+streamlit
+pandas
+numpy
+openpyxl
+xlsxwriter
+
+# === NLP & AI ===
+sentence-transformers
+torch
+nltk
+scikit-learn
+openai
+
+# === Document Parsing ===
+pymupdf         # PDF parsing
+python-docx     # DOCX parsing
+
+# === API & HTTP ===
+httpx           # For LLaMA / Groq API
+python-dotenv   # For .env file support
+
+# === Report Generation ===
+fpdf            # PDF report builder
+
+# === (Optional) Visualizations ===
+matplotlib
+plotly
+wordcloud
